@@ -228,7 +228,11 @@ export default function CarniceriaLanding() {
                 La mejor carne para tu mesa, todos los días.
               </h1>
 
+<<<<<<< HEAD
             
+=======
+     
+>>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -301,9 +305,13 @@ export default function CarniceriaLanding() {
             Nuestros productos
           </span>
 
+<<<<<<< HEAD
           <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
             Cortes 
           </h2>
+=======
+       
+>>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
 
         
         </div>
@@ -398,10 +406,13 @@ export default function CarniceriaLanding() {
             Promociones
           </span>
 
+<<<<<<< HEAD
           <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
             Ofertas 
           </h2>
 
+=======
+>>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
         
         </div>
 
