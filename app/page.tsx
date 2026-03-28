@@ -13,7 +13,7 @@ const WHATSAPP_URL = "https://wa.me/5493521466165";
 const categoriasPrecios: Categoria[] = [
   {
     titulo: "Cortes de pollo",
-    color: "bg-[#b51f2d]",
+    color: "from-[#b51f2d] to-[#8d1722]",
     items: [
       { nombre: "Pollo entero", precio: "$5.800/kg" },
       { nombre: "1/4 trasero", precio: "2 kg x $11.000" },
@@ -30,7 +30,7 @@ const categoriasPrecios: Categoria[] = [
   },
   {
     titulo: "Cortes de novillito",
-    color: "bg-[#7c111d]",
+    color: "from-[#7c111d] to-[#5d0b14]",
     items: [
       { nombre: "Aguja", precio: "$17.000/kg" },
       { nombre: "Bocado ancho", precio: "$22.000/kg" },
@@ -62,7 +62,7 @@ const categoriasPrecios: Categoria[] = [
   },
   {
     titulo: "Cortes de cerdo",
-    color: "bg-[#1f6f43]",
+    color: "from-[#1f6f43] to-[#145131]",
     items: [
       { nombre: "Blando / Bondiola", precio: "$12.000/kg" },
       { nombre: "Costilla", precio: "$10.000/kg" },
@@ -100,20 +100,20 @@ const ofertas: Oferta[] = [
 const resumenCategorias = [
   {
     title: "Novillito",
-    subtitle: "Cortes vacunos seleccionados y de calidad",
-    accent: "bg-[#7c111d]",
+    subtitle: "Cortes vacunos seleccionados",
+    accent: "from-[#7c111d] to-[#5d0b14]",
     items: categoriasPrecios[1].items.slice(0, 4),
   },
   {
     title: "Cerdo",
-    subtitle: "Opciones frescas para todos los gustos",
-    accent: "bg-[#1f6f43]",
+    subtitle: "Opciones frescas y rendidoras",
+    accent: "from-[#1f6f43] to-[#145131]",
     items: categoriasPrecios[2].items,
   },
   {
     title: "Pollo",
-    subtitle: "Variedad para el día a día",
-    accent: "bg-[#b51f2d]",
+    subtitle: "Variedad para todos los días",
+    accent: "from-[#b51f2d] to-[#8d1722]",
     items: categoriasPrecios[0].items.slice(0, 4),
   },
 ];
@@ -125,6 +125,7 @@ export default function CarniceriaLanding() {
   const ofertasVisiblesDesktop = 3;
   const maxOfertaIndex = Math.max(ofertas.length - ofertasVisiblesDesktop, 0);
   const precioActual = categoriasPrecios[precioIndex];
+  const ofertaPrincipal = ofertas[0];
 
   const ofertasMostradas = useMemo(
     () => ofertas.slice(ofertaIndex, ofertaIndex + ofertasVisiblesDesktop),
@@ -155,79 +156,121 @@ export default function CarniceriaLanding() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
+    <main className="min-h-screen bg-[#fcfbfa] text-zinc-900">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#5f0f16]/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
+          <a href="#" className="flex items-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Logo Carnicería Norte"
+              width={1536}
+              height={1024}
+              className="h-auto w-[115px] object-contain sm:w-[140px]"
+              priority
+            />
+          </a>
+
+          <nav className="hidden items-center gap-6 md:flex">
+            <a
+              href="#cortes"
+              className="text-sm font-medium text-white/85 transition hover:text-white"
+            >
+              Cortes
+            </a>
+            <a
+              href="#ofertas"
+              className="text-sm font-medium text-white/85 transition hover:text-white"
+            >
+              Ofertas
+            </a>
+            <a
+              href="#ubicacion"
+              className="text-sm font-medium text-white/85 transition hover:text-white"
+            >
+              Ubicación
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#7c111d] transition hover:scale-[1.02]"
+            >
+              WhatsApp
+            </a>
+          </nav>
+        </div>
+      </header>
+
       <section className="relative overflow-hidden bg-gradient-to-br from-[#5f0f16] via-[#8f1823] to-[#1f6f43] text-white">
         <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[#1f6f43]/20 blur-3xl" />
 
-     <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:px-10 md:py-16">
- <div className="mb-8 flex justify-center md:justify-start">
-    <Image
-      src="/logo.png"
-      alt="Logo Carnicería Norte"
-      width={1536}
-      height={1024}
-      priority
-      className="h-auto w-[180px] object-contain sm:w-[220px] md:w-[280px] lg:w-[320px]"
-    />
-  </div>
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:px-10 md:py-16">
+          <div className="mb-8 flex justify-center md:justify-start">
+            <Image
+              src="/logo.png"
+              alt="Logo Carnicería Norte"
+              width={1536}
+              height={1024}
+              priority
+              className="h-auto w-[180px] object-contain sm:w-[220px] md:w-[280px] lg:w-[320px]"
+            />
+          </div>
 
-  <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
-    <div>
-      <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1 text-sm backdrop-blur">
-        Calidad, frescura y buenos precios
-      </span>
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+            <div>
+              <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/95 backdrop-blur">
+                Calidad, frescura y buenos precios
+              </span>
 
-      <h1 className="mt-6 text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
-        La mejor carne para tu mesa, todos los días.
-      </h1>
+              <h1 className="mt-6 max-w-[12ch] text-4xl font-black leading-[0.95] sm:text-5xl md:text-6xl">
+                La mejor carne para tu mesa, todos los días.
+              </h1>
 
-      <p className="mt-5 max-w-xl text-base text-white/90 md:text-lg">
-        Mostramos nuestros cortes, ofertas y precios destacados para que
-        tus clientes encuentren rápido lo que buscan y te contacten
-        directo.
-      </p>
+            
 
-      <div className="mt-8 flex flex-wrap gap-3">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-2xl bg-white px-6 py-3 font-semibold text-[#7c111d] shadow-lg transition hover:scale-[1.02]"
-        >
-          Consultar por WhatsApp
-        </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-2xl bg-white px-6 py-3.5 font-semibold text-[#7c111d] shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:scale-[1.02]"
+                >
+                  Consultar por WhatsApp
+                </a>
 
-        <a
-          href="#cortes"
-          className="rounded-2xl border border-white/40 px-6 py-3 font-semibold text-white transition hover:cursor-pointer hover:bg-white/10"
-        >
-          Ver cortes
-        </a>
+                <a
+                  href="#cortes"
+                  className="rounded-2xl border border-white/25 bg-white/5 px-5 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                >
+                  Ver cortes
+                </a>
 
-        <a
-          href="#ofertas"
-          className="rounded-2xl border border-white/40 px-6 py-3 font-semibold text-white transition hover:cursor-pointer hover:bg-white/10"
-        >
-          Ver ofertas
-        </a>
-      </div>
-    </div>
+                <a
+                  href="#ofertas"
+                  className="rounded-2xl border border-white/25 bg-white/5 px-5 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                >
+                  Ver ofertas
+                </a>
+              </div>
+            </div>
 
             <div>
-              <div className="rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-md md:p-6">
+              <div className="rounded-[2rem] border border-white/15 bg-white/10 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur-md md:p-6">
                 <div className="rounded-[1.5rem] bg-white p-5 text-zinc-900 md:p-6">
                   <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
                     <div>
                       <p className="text-sm font-medium text-[#1f6f43]">
-                        Destacado de la semana
+                        Ofertas 
                       </p>
-                      <h2 className="text-2xl font-bold text-[#7c111d]">
-                        Oferta Vacuno
+                      <h2 className="text-2xl font-black text-[#7c111d]">
+                        {ofertaPrincipal.titulo}
                       </h2>
                     </div>
 
-                    <span className="rounded-full bg-[#1f6f43] px-4 py-1 text-sm font-semibold text-white">
-                      Oferta
+                    <span className="rounded-full bg-[#1f6f43] px-4 py-1 text-sm font-semibold text-white shadow-sm">
+                      Más elegida
                     </span>
                   </div>
 
@@ -241,9 +284,9 @@ export default function CarniceriaLanding() {
                     />
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between rounded-2xl bg-[#7c111d] px-5 py-4 text-white">
+                  <div className="mt-6 flex items-center justify-between rounded-2xl bg-gradient-to-r from-[#7c111d] to-[#a11322] px-5 py-4 text-white">
                     <span className="text-lg font-medium">Precio promo</span>
-                    <span className="text-2xl font-black">$36.000</span>
+                    <span className="text-3xl font-black">$36.000</span>
                   </div>
                 </div>
               </div>
@@ -252,14 +295,14 @@ export default function CarniceriaLanding() {
         </div>
       </section>
 
-      <section id="cortes" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10">
+      <section id="cortes" className="mx-auto max-w-7xl px-4 py-18 sm:px-6 md:px-10">
         <div className="max-w-2xl">
-          <span className="rounded-full bg-[#f5e9ea] px-4 py-1 text-sm font-semibold text-[#7c111d]">
+          <span className="rounded-full bg-[#f5e9ea] px-4 py-1.5 text-sm font-semibold text-[#7c111d]">
             Nuestros productos
           </span>
 
-          <h2 className="mt-4 text-3xl font-black md:text-4xl">
-            Cortes y categorías destacadas
+          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+            Cortes 
           </h2>
 
         
@@ -273,36 +316,40 @@ export default function CarniceriaLanding() {
       </section>
 
       <section className="bg-[#fff8f8]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10">
+        <div className="mx-auto max-w-7xl px-4 py-18 sm:px-6 md:px-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="rounded-full bg-[#e9f5ee] px-4 py-1 text-sm font-semibold text-[#1f6f43]">
+              <span className="rounded-full bg-[#e9f5ee] px-4 py-1.5 text-sm font-semibold text-[#1f6f43]">
                 Precios de referencia
               </span>
 
-              <h2 className="mt-4 text-3xl font-black md:text-4xl">
+              <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
                 {precioActual.titulo}
               </h2>
             </div>
 
-           
+          
           </div>
 
           <div className="mt-10">
-            <div className="overflow-hidden rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm md:rounded-[2rem]">
+            <div className="overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
               <div
-                className={`${precioActual.color} grid grid-cols-2 px-4 py-4 text-sm font-semibold uppercase tracking-wide text-white md:px-6 md:text-base`}
+                className={`grid grid-cols-2 bg-gradient-to-r ${precioActual.color} px-4 py-4 text-sm font-semibold uppercase tracking-wide text-white md:px-6 md:text-base`}
               >
                 <span>Corte</span>
                 <span className="text-right">Precio</span>
               </div>
 
-              {precioActual.items.map((item) => (
+              {precioActual.items.map((item, index) => (
                 <div
                   key={`${precioActual.titulo}-${item.nombre}`}
-                  className="grid grid-cols-2 border-t border-zinc-100 px-4 py-4 text-sm md:px-6 md:text-base"
+                  className={`grid grid-cols-2 px-4 py-4 text-sm md:px-6 md:text-base ${
+                    index !== 0 ? "border-t border-zinc-100" : ""
+                  }`}
                 >
-                  <span className="pr-3">{item.nombre}</span>
+                  <span className="pr-3 font-medium text-zinc-700">
+                    {item.nombre}
+                  </span>
                   <span className="text-right font-bold text-[#1f6f43]">
                     {item.precio}
                   </span>
@@ -310,7 +357,7 @@ export default function CarniceriaLanding() {
               ))}
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-4">
+            <div className="mt-5 flex items-center justify-center gap-4">
               <ArrowButton
                 onClick={() => changePrecio(-1)}
                 label="Ver categoría anterior"
@@ -333,8 +380,10 @@ export default function CarniceriaLanding() {
                 key={categoria.titulo}
                 type="button"
                 onClick={() => setPrecioIndex(index)}
-                className={`h-3 rounded-full transition-all hover:cursor-pointer ${
-                  precioIndex === index ? "w-10 bg-[#7c111d]" : "w-3 bg-zinc-300"
+                className={`h-3 rounded-full transition-all ${
+                  precioIndex === index
+                    ? "w-10 bg-[#7c111d]"
+                    : "w-3 bg-zinc-300 hover:bg-zinc-400"
                 }`}
                 aria-label={categoria.titulo}
               />
@@ -343,15 +392,17 @@ export default function CarniceriaLanding() {
         </div>
       </section>
 
-      <section id="ofertas" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10">
+      <section id="ofertas" className="mx-auto max-w-7xl px-4 py-18 sm:px-6 md:px-10">
         <div className="max-w-2xl">
-          <span className="rounded-full bg-[#f5e9ea] px-4 py-1 text-sm font-semibold text-[#7c111d]">
+          <span className="rounded-full bg-[#f5e9ea] px-4 py-1.5 text-sm font-semibold text-[#7c111d]">
             Promociones
           </span>
 
-          <h2 className="mt-4 text-3xl font-black md:text-4xl">
-            Ofertas para destacar lo que más se vende
+          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+            Ofertas 
           </h2>
+
+        
         </div>
 
         <div className="mt-10 hidden items-center gap-6 md:flex">
@@ -365,8 +416,12 @@ export default function CarniceriaLanding() {
           )}
 
           <div className="grid flex-1 gap-6 md:grid-cols-3">
-            {ofertasMostradas.map((oferta) => (
-              <OfertaCard key={oferta.titulo} oferta={oferta} />
+            {ofertasMostradas.map((oferta, index) => (
+              <OfertaCard
+                key={oferta.titulo}
+                oferta={oferta}
+                featured={index === 0}
+              />
             ))}
           </div>
 
@@ -378,8 +433,12 @@ export default function CarniceriaLanding() {
         </div>
 
         <div className="mt-10 grid gap-6 md:hidden">
-          {ofertas.map((oferta) => (
-            <OfertaCard key={oferta.titulo} oferta={oferta} />
+          {ofertas.map((oferta, index) => (
+            <OfertaCard
+              key={oferta.titulo}
+              oferta={oferta}
+              featured={index === 0}
+            />
           ))}
         </div>
 
@@ -390,8 +449,10 @@ export default function CarniceriaLanding() {
                 key={index}
                 type="button"
                 onClick={() => setOfertaIndex(index)}
-                className={`h-3 rounded-full transition-all hover:cursor-pointer ${
-                  ofertaIndex === index ? "w-10 bg-[#1f6f43]" : "w-3 bg-zinc-300"
+                className={`h-3 rounded-full transition-all ${
+                  ofertaIndex === index
+                    ? "w-10 bg-[#1f6f43]"
+                    : "w-3 bg-zinc-300 hover:bg-zinc-400"
                 }`}
                 aria-label={`Ir al grupo de ofertas ${index + 1}`}
               />
@@ -400,44 +461,56 @@ export default function CarniceriaLanding() {
         )}
       </section>
 
-      <section className="bg-gradient-to-r from-[#1f6f43] via-[#7c111d] to-[#b51f2d] text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-2 md:px-10">
+      <section
+        id="ubicacion"
+        className="bg-gradient-to-r from-[#1f6f43] via-[#7c111d] to-[#b51f2d] text-white"
+      >
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-18 sm:px-6 md:grid-cols-2 md:px-10">
           <div>
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex rounded-full border border-white/30 px-4 py-1 text-sm font-semibold transition hover:cursor-pointer hover:bg-white/10"
+              className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur transition hover:bg-white/15"
             >
               Ubicación
             </a>
 
-            <h2 className="mt-4 text-3xl font-black md:text-4xl">
+            <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
               Vení a visitarnos
             </h2>
 
-            <div className="mt-6 space-y-4 text-white/90">
-              <p>
-                <strong>Dirección:</strong> Domingo Cabrera 20 (frente al estadio
-                Fuhad Cordi)
-              </p>
-              <p>
-                <strong>Horarios:</strong> Lunes a sábados de 8:30 a 13:00 y de
-                19:00 a 21:00
-              </p>
-              <p>
-                <strong>Domingos:</strong> de 10:00 a 13:00
-              </p>
-              <p>
-                <strong>Teléfono:</strong> +54 9 3521 466165
-              </p>
+            <p className="mt-3 max-w-lg text-base leading-7 text-white/85">
+              Estamos para atenderte con precios claros, buena mercadería y
+              atención directa.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <InfoBox
+                title="Dirección"
+                value="Domingo Cabrera 20"
+                extra="Frente al estadio Fuhad Cordi"
+              />
+              <InfoBox
+                title="Teléfono"
+                value="+54 9 3521 466165"
+              />
+              <InfoBox
+                title="Lunes a sábados"
+                value="8:30 a 13:00"
+                extra="19:00 a 21:00"
+              />
+              <InfoBox
+                title="Domingos"
+                value="10:00 a 13:00"
+              />
             </div>
 
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex rounded-2xl bg-white px-6 py-3 font-semibold text-[#7c111d] shadow-lg transition hover:scale-[1.02]"
+              className="mt-8 inline-flex rounded-2xl bg-white px-6 py-3.5 font-semibold text-[#7c111d] shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               Pedir información
             </a>
@@ -447,7 +520,7 @@ export default function CarniceriaLanding() {
             href={MAPS_URL}
             target="_blank"
             rel="noreferrer"
-            className="block rounded-[2rem] bg-white/10 p-3 backdrop-blur transition hover:cursor-pointer hover:bg-white/15 md:p-4"
+            className="block rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-[0_24px_80px_rgba(0,0,0,0.20)] backdrop-blur transition hover:bg-white/15 md:p-4"
           >
             <div className="overflow-hidden rounded-[1.5rem] border border-white/20 bg-white/5 p-2">
               <div className="mx-auto w-full max-w-[620px]">
@@ -481,7 +554,7 @@ function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="relative z-20 flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full border border-zinc-300 bg-white text-xl font-bold text-[#7c111d] shadow-sm transition active:scale-95 hover:cursor-pointer md:h-12 md:w-12 md:text-2xl"
+      className="relative z-20 flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full border border-zinc-300 bg-white text-xl font-bold text-[#7c111d] shadow-sm transition hover:-translate-y-0.5 hover:scale-[1.03] active:scale-95 md:h-12 md:w-12 md:text-2xl"
     >
       {children}
     </button>
@@ -497,18 +570,38 @@ function ItemPromo({ nombre, detalle }: { nombre: string; detalle: string }) {
   );
 }
 
-function OfertaCard({ oferta }: { oferta: Oferta }) {
+function OfertaCard({
+  oferta,
+  featured = false,
+}: {
+  oferta: Oferta;
+  featured?: boolean;
+}) {
   return (
-    <div className="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-      <div className="inline-flex rounded-full bg-[#1f6f43] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-        Oferta especial
+    <div
+      className={`rounded-[2rem] border bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl ${
+        featured
+          ? "border-[#7c111d]/15 shadow-[0_18px_50px_rgba(124,17,29,0.12)]"
+          : "border-zinc-200 shadow-sm"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <div className="inline-flex rounded-full bg-[#1f6f43] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+          Oferta especial
+        </div>
+
+        {featured && (
+          <span className="rounded-full bg-[#7c111d]/10 px-3 py-1 text-xs font-semibold text-[#7c111d]">
+            Recomendada
+          </span>
+        )}
       </div>
 
       <h3 className="mt-4 text-2xl font-black text-[#7c111d]">
         {oferta.titulo}
       </h3>
 
-      <p className="mt-3 text-zinc-600">{oferta.descripcion}</p>
+      <p className="mt-3 min-h-[72px] text-zinc-600">{oferta.descripcion}</p>
 
       <div className="mt-6 flex items-center justify-between gap-4">
         <span className="text-zinc-500">Precio final</span>
@@ -516,6 +609,24 @@ function OfertaCard({ oferta }: { oferta: Oferta }) {
           {oferta.precio}
         </span>
       </div>
+    </div>
+  );
+}
+
+function InfoBox({
+  title,
+  value,
+  extra,
+}: {
+  title: string;
+  value: string;
+  extra?: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
+      <p className="text-sm font-semibold text-white/70">{title}</p>
+      <p className="mt-1 text-base font-bold text-white">{value}</p>
+      {extra && <p className="mt-1 text-sm text-white/80">{extra}</p>}
     </div>
   );
 }
@@ -532,8 +643,8 @@ function CategoryCard({
   accent: string;
 }) {
   return (
-    <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-      <div className={`${accent} px-6 py-5 text-white`}>
+    <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:shadow-xl">
+      <div className={`bg-gradient-to-r ${accent} px-6 py-5 text-white`}>
         <h3 className="text-2xl font-black">{title}</h3>
         <p className="mt-1 text-sm text-white/85">{subtitle}</p>
       </div>
