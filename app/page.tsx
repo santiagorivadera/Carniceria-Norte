@@ -181,11 +181,7 @@ export default function CarniceriaLanding() {
         La mejor carne para tu mesa, todos los días.
       </h1>
 
-      <p className="mt-5 max-w-xl text-base text-white/90 md:text-lg">
-        Mostramos nuestros cortes, ofertas y precios destacados para que
-        tus clientes encuentren rápido lo que buscan y te contacten
-        directo.
-      </p>
+     
 
       <div className="mt-8 flex flex-wrap gap-3">
         <a
