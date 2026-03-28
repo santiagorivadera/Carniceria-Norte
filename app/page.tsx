@@ -228,11 +228,6 @@ export default function CarniceriaLanding() {
                 La mejor carne para tu mesa, todos los días.
               </h1>
 
-<<<<<<< HEAD
-            
-=======
-     
->>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -266,7 +261,7 @@ export default function CarniceriaLanding() {
                   <div className="flex items-center justify-between border-b border-zinc-200 pb-4">
                     <div>
                       <p className="text-sm font-medium text-[#1f6f43]">
-                        Ofertas 
+                        Oferta 
                       </p>
                       <h2 className="text-2xl font-black text-[#7c111d]">
                         {ofertaPrincipal.titulo}
@@ -305,15 +300,8 @@ export default function CarniceriaLanding() {
             Nuestros productos
           </span>
 
-<<<<<<< HEAD
-          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
-            Cortes 
-          </h2>
-=======
        
->>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
 
-        
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -328,7 +316,7 @@ export default function CarniceriaLanding() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <span className="rounded-full bg-[#e9f5ee] px-4 py-1.5 text-sm font-semibold text-[#1f6f43]">
-                Precios de referencia
+                Precios
               </span>
 
               <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
@@ -336,7 +324,6 @@ export default function CarniceriaLanding() {
               </h2>
             </div>
 
-          
           </div>
 
           <div className="mt-10">
@@ -406,14 +393,9 @@ export default function CarniceriaLanding() {
             Promociones
           </span>
 
-<<<<<<< HEAD
-          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
-            Ofertas 
-          </h2>
-
-=======
->>>>>>> 00a006594b00b34bf7f46ef6627e99af0ea7e81b
         
+
+          
         </div>
 
         <div className="mt-10 hidden items-center gap-6 md:flex">
