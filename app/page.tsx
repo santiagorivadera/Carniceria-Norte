@@ -258,9 +258,7 @@ export default function CarniceriaLanding() {
             Nuestros productos
           </span>
 
-          <h2 className="mt-4 text-3xl font-black md:text-4xl">
-            Cortes y categorías destacadas
-          </h2>
+       
 
         
         </div>
@@ -349,9 +347,7 @@ export default function CarniceriaLanding() {
             Promociones
           </span>
 
-          <h2 className="mt-4 text-3xl font-black md:text-4xl">
-            Ofertas para destacar lo que más se vende
-          </h2>
+        
         </div>
 
         <div className="mt-10 hidden items-center gap-6 md:flex">
